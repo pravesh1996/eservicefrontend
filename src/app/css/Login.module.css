@@ -1,0 +1,85 @@
+/* styles/Login.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #e0e0e0;
+  }
+  
+  .box {
+    display: flex;
+    width: 800px;
+    height: 350px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .leftSide {
+    background: linear-gradient(to bottom, #005f80, #001f40);
+    color: white;
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .leftSide h2 {
+    margin-bottom: 10px;
+  }
+  
+  .leftSide h3 {
+    margin: 5px 0;
+  }
+  
+  .leftSide p {
+    margin-top: 10px;
+  }
+  
+  .rightSide {
+    background-color: white;
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .rightSide h2 {
+    margin-bottom: 20px;
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputField {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submitButton {
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: darkorange;
+  }
+  
+  .forgotPasswordLink {
+    margin-top: 10px;
+    color: #005f80;
+    text-decoration: none;
+  }
+  
