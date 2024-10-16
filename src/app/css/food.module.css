@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-image: url('/images/railway-bg.jpg'); /* Add an image relevant to railways */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* White text to stand out on darker backgrounds */
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #ffcc00; /* Railway station-inspired yellow for emphasis */
+  }
+  
+  .cardContainer {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white for a clean look */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    width: 300px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .cardLink {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #0070f3;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
