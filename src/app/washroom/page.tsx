@@ -61,7 +61,7 @@ const WashroomService = () => {
       {/* Washroom Selection Section */}
       <div className={styles.inputGroup}>
         <label className={styles.label}>
-          Washroom:
+          Washroom/Bath:
           <input
             type="number"
             value={washroomCount}
