@@ -1,12 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "../css/Login.module.css";
-import OtpInput from "./otp-input"; // Adjusted path to match file name
+import OtpInput from "./otp-input";
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showOtpInput, setShowOtpInput] = useState(false);
+  const [otpMessage, setOtpMessage] = useState("OTP sent successfully.");  
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handlePhoneNumber = (event) => {
     setPhoneNumber(event.target.value);
@@ -15,23 +19,39 @@ const Login = () => {
   const handlePhoneSubmit = (event) => {
     event.preventDefault();
 
-    // Phone validation
     const regex = /^[0-9]{10}$/;
     if (!regex.test(phoneNumber)) {
       alert("Invalid Phone Number. Please enter a 10-digit number.");
       return;
     }
 
-    // Mock API call here
-    setShowOtpInput(true);
+    console.log("OTP sent to", phoneNumber);
+    setShowOtpInput(true); 
   };
 
   const onOtpSubmit = (otp) => {
-    console.log("login successful", otp);
-  };
+    if (otp === "123456") { 
+      console.log("Login successful", otp);
 
+      localStorage.setItem("isAuthenticated", "true");
+      console.log(
+        "isAuthenticated set in localStorage:",
+        localStorage.getItem("isAuthenticated")
+      );
+
+      setLoading(true);
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+    } else {
+      alert("Invalid OTP. Please try again.");
+    }
+  };
+  
   return (
     <div className={styles.container}>
+
       <div className={styles.loginBox}>
         <h2>e-Seva Portal</h2>
         <h3>Government Services at Your Fingertips</h3>
@@ -42,7 +62,9 @@ const Login = () => {
           applications, and more.
         </p>
 
-        {!showOtpInput ? (
+        {loading ? (
+          <div className={styles.spinner}>Loading...</div>
+        ) : !showOtpInput ? (
           <form onSubmit={handlePhoneSubmit}>
             <input
               className={styles.userInput}
@@ -55,6 +77,7 @@ const Login = () => {
           </form>
         ) : (
           <div>
+            <p>{otpMessage}</p>
             <p>Enter OTP sent to {phoneNumber}</p>
             <OtpInput length={6} onOtpSubmit={onOtpSubmit} />
           </div>

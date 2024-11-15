@@ -1,4 +1,18 @@
 
+
+
+
+.loginBox {
+  margin-top: 60px; /* Add space for the navbar */
+}
+
+/* Loading spinner */
+.spinner {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 20px;
+}
+
 .container {
   display: flex;
   justify-content: center;

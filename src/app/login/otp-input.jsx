@@ -16,17 +16,13 @@ useEffect(()=>{
     if(isNaN(value))return;
 
     const newOtp = [...otp];
-    //allow only one input
     newOtp[index] = value.substring(value.length - 1);
     setOtp(newOtp);
 
-    //submit trigger
     const combinedOtp = newOtp.join("");
     if(combinedOtp.length === length) onOtpSubmit(combinedOtp);
 
 
-
- // Move to the next empty input if the current input is filled
  const nextEmptyIndex = newOtp.findIndex((val) => val === "");
  if (nextEmptyIndex !== -1 && inputRefs.current[nextEmptyIndex]) {
    inputRefs.current[nextEmptyIndex].focus();
@@ -38,7 +34,6 @@ useEffect(()=>{
 
   };
   const handleKeyDown = (index, e) => {
-     // Move focus to the previous input field on backspace if current is empty
      if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1].focus();
     }
